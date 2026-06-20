@@ -1,36 +1,53 @@
-# 🚀 Portfólio de Relatórios Práticos: Cibersegurança & Operações de TI
+# 🛡️ Relatório de Análise de Incidente: Mitigação de Ataque DoS via NIST CSF
 
-Bem-vindo ao meu repositório de documentação técnica e análises laboratoriais. Este espaço foi criado com o objetivo de consolidar, estruturar e apresentar cenários práticos de resposta a incidentes, governança e infraestrutura de TI, aplicando frameworks reconhecidos pelo mercado internacional.
-
-Aqui você encontrará relatórios detalhados (write-ups) que demonstram minha capacidade analítica, domínio de protocolos de rede e abordagem proativa na mitigação de riscos digitais.
+Este projeto prático faz parte do módulo de portfólio do curso **"Connect and Protect: Networks and Network Security"** do Google. O objetivo principal foi simular a atuação de um Analista de Segurança Cibernética na investigação, contenção e recuperação de uma infraestrutura de rede corporativa após sofrer um ataque de Negação de Serviço (DoS).
 
 ---
 
-## 📂 Índice de Projetos Práticos
+## 📝 O Cenário do Incidente
 
-Abaixo estão os projetos desenvolvidos, divididos por escopo técnico. Clique no link de cada um para acessar a documentação completa e os relatórios gerados:
+Uma empresa de multimídia que fornece serviços de Web Design e Marketing digital sofreu uma interrupção crítica em sua rede interna, deixando os serviços inoperantes por **duas horas**. 
 
-| Projeto / Cenário | Framework / Tecnologia Aplicada | Status | Link para o Relatório |
-| :--- | :--- | :--- | :--- |
-| **Resposta a Incidente: Ataque DoS** | NIST CSF (Cybersecurity Framework) | ✅ Concluído | [Acessar Projeto](./NIST-Incident-Report/) |
-| **Análise Operacional de Feedbacks** | Triagem Quantitativa & Qualitativa | ✅ Concluído | [Acessar Projeto](./Analise-Operacional/) |
-
-*(Nota: À medida que eu avançar nos laboratórios de SOC e Blue Team, novos relatórios baseados em SIEM, Firewalls e IDS/IPS serão integrados aqui).*
+A equipe de segurança investigou o evento e descobriu que um agente mal-intencionado explorou uma vulnerabilidade de **falta de configuração adequada de regras no firewall de perímetro**, disparando um ataque de inundação de pings (**ICMP Ping Flood**). O volume massivo de pacotes falsificados sobrecarregou a largura de banda, impedindo o tráfego legítimo dos funcionários e interrompendo os serviços dos clientes.
 
 ---
 
-## 🛠️ Habilidades e Conceitos Demonstrados neste Repositório
+## 📊 Aplicação do NIST Cybersecurity Framework (CSF)
 
-* **Resposta a Incidentes (IR):** Investigação de causa raiz, contenção de ameaças e planos de recuperação de desastres.
-* **Frameworks de Mercado:** Alinhamento operacional com as diretrizes do NIST CSF.
-* **Segurança de Redes:** Análise de tráfego malicioso (ICMP Flood), regras de firewall e implementação de ferramentas de detecção (IDS/IPS).
-* **Documentação Técnica:** Escrita de relatórios corporativos claros e transparentes para tomadas de decisão estratégicas.
+Para estruturar a resposta ao incidente e blindar a organização contra novos ataques na mesma superfície, o plano de ação foi mapeado seguindo as 5 funções essenciais do NIST:
+
+### 1. Identify (Identificar)
+* **O que foi afetado:** A rede interna da organização e todos os recursos de rede dependentes.
+* **Vulnerabilidade Explorada:** Firewall de perímetro sem regras restritivas para tráfego ICMP de entrada.
+* **Tipo de Ataque:** Negação de Serviço (DoS) utilizando a técnica de ICMP Ping Flood.
+
+### 2. Protect (Proteger)
+Medidas implementadas para mitigar o risco e proteger os ativos contra recorrências:
+* Criação de uma **nova regra de firewall** para limitar a taxa (*rate-limiting*) de entrada de pacotes ICMP.
+* Ativação de controles de acesso para **verificação de IP de origem** no firewall, bloqueando pacotes falsificados (IP Spoofing).
+* Atualização de assinaturas e políticas de segurança dos ativos de borda.
+
+### 3. Detect (Detectar)
+Sistemas configurados para identificar anomalias com rapidez:
+* Implementação de **software de monitoramento de rede** contínuo para analisar desvios e picos repentinos de pacotes.
+* Instalação de um Sistema de Detecção de Intrusão (**IDS**) para gerar alertas automatizados em caso de tráfegos suspeitos com características de DoS.
+
+### 4. Respond (Responder)
+Protocolo de contenção ativado durante a crise:
+* Isolamento/colocação em modo *offline* de serviços de rede não críticos para liberar largura de banda para a operação essencial.
+* Bloqueio imediato do tráfego ICMP abusivo diretamente no firewall perimetral.
+* Análise ativa de logs do firewall e do IDS em tempo real para entender a assinatura do ataque.
+
+### 5. Recover (Recuperar)
+Plano de retorno à normalidade:
+* Restauração gradual do fluxo normal de dados da rede interna e estabilização dos servidores afetados.
+* Como o ataque afetou apenas a *disponibilidade* da rede, foi confirmado que **não houve exclusão ou corrupção de dados** de clientes.
+* Estabelecimento de um regime de monitoramento intensificado pelas **24 horas seguintes** ao incidente para garantir que nenhum ataque residual ocorresse.
 
 ---
 
-## 👤 Autor
+## 💡 Aprendizados Adquiridos
 
-* **Caio Henrique Lopes Mendes**
-* **Formação:** Bacharel em Ciência da Computação
-* **LinkedIn:** [Meu Perfil](https://www.linkedin.com/in/caiohenriquecyber/)
-* **Foco Profissional:** Segurança Cibernética | Blue Team | Operações de SOC
+* Compreensão prática do comportamento do protocolo ICMP e como ele pode ser explorado para exaustão de recursos de rede.
+* Experiência com arquitetura de segurança defensiva, incluindo posicionamento e configuração de Firewalls e sistemas IDS/IPS.
+* Capacidade de documentar incidentes seguindo terminologias e padrões de governança internacionais (NIST), facilitando a comunicação transparente com os stakeholders da empresa.
