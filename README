@@ -1,1 +1,36 @@
+# 🚀 Portfólio de Relatórios Práticos: Cibersegurança & Operações de TI
 
+Bem-vindo ao meu repositório de documentação técnica e análises laboratoriais. Este espaço foi criado com o objetivo de consolidar, estruturar e apresentar cenários práticos de resposta a incidentes, governança e infraestrutura de TI, aplicando frameworks reconhecidos pelo mercado internacional.
+
+Aqui você encontrará relatórios detalhados (write-ups) que demonstram minha capacidade analítica, domínio de protocolos de rede e abordagem proativa na mitigação de riscos digitais.
+
+---
+
+## 📂 Índice de Projetos Práticos
+
+Abaixo estão os projetos desenvolvidos, divididos por escopo técnico. Clique no link de cada um para acessar a documentação completa e os relatórios gerados:
+
+| Projeto / Cenário | Framework / Tecnologia Aplicada | Status | Link para o Relatório |
+| :--- | :--- | :--- | :--- |
+| **Resposta a Incidente: Ataque DoS** | NIST CSF (Cybersecurity Framework) | ✅ Concluído | [Acessar Projeto](./NIST-Incident-Report/) |
+| **Análise Operacional de Feedbacks** | Triagem Quantitativa & Qualitativa | ✅ Concluído | [Acessar Projeto](./Analise-Operacional/) |
+
+*(Nota: À medida que eu avançar nos laboratórios de SOC e Blue Team, novos relatórios baseados em SIEM, Firewalls e IDS/IPS serão integrados aqui).*
+
+---
+
+## 🛠️ Habilidades e Conceitos Demonstrados neste Repositório
+
+* **Resposta a Incidentes (IR):** Investigação de causa raiz, contenção de ameaças e planos de recuperação de desastres.
+* **Frameworks de Mercado:** Alinhamento operacional com as diretrizes do NIST CSF.
+* **Segurança de Redes:** Análise de tráfego malicioso (ICMP Flood), regras de firewall e implementação de ferramentas de detecção (IDS/IPS).
+* **Documentação Técnica:** Escrita de relatórios corporativos claros e transparentes para tomadas de decisão estratégicas.
+
+---
+
+## 👤 Autor
+
+* **Caio Henrique Lopes Mendes**
+* **Formação:** Bacharel em Ciência da Computação
+* **LinkedIn:** [Meu Perfil](https://www.linkedin.com/in/caiohenriquecyber/)
+* **Foco Profissional:** Segurança Cibernética | Blue Team | Operações de SOC
