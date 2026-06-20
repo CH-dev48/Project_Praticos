@@ -1,1 +1,53 @@
+# 🛡️ Relatório de Análise de Incidente: Mitigação de Ataque DoS via NIST CSF
 
+Este projeto prático faz parte do módulo de portfólio do curso **"Connect and Protect: Networks and Network Security"** do Google. O objetivo principal foi simular a atuação de um Analista de Segurança Cibernética na investigação, contenção e recuperação de uma infraestrutura de rede corporativa após sofrer um ataque de Negação de Serviço (DoS).
+
+---
+
+## 📝 O Cenário do Incidente
+
+Uma empresa de multimídia que fornece serviços de Web Design e Marketing digital sofreu uma interrupção crítica em sua rede interna, deixando os serviços inoperantes por **duas horas**. 
+
+A equipe de segurança investigou o evento e descobriu que um agente mal-intencionado explorou uma vulnerabilidade de **falta de configuração adequada de regras no firewall de perímetro**, disparando um ataque de inundação de pings (**ICMP Ping Flood**). O volume massivo de pacotes falsificados sobrecarregou a largura de banda, impedindo o tráfego legítimo dos funcionários e interrompendo os serviços dos clientes.
+
+---
+
+## 📊 Aplicação do NIST Cybersecurity Framework (CSF)
+
+Para estruturar a resposta ao incidente e blindar a organização contra novos ataques na mesma superfície, o plano de ação foi mapeado seguindo as 5 funções essenciais do NIST:
+
+### 1. Identify (Identificar)
+* **O que foi afetado:** A rede interna da organização e todos os recursos de rede dependentes.
+* **Vulnerabilidade Explorada:** Firewall de perímetro sem regras restritivas para tráfego ICMP de entrada.
+* **Tipo de Ataque:** Negação de Serviço (DoS) utilizando a técnica de ICMP Ping Flood.
+
+### 2. Protect (Proteger)
+Medidas implementadas para mitigar o risco e proteger os ativos contra recorrências:
+* Criação de uma **nova regra de firewall** para limitar a taxa (*rate-limiting*) de entrada de pacotes ICMP.
+* Ativação de controles de acesso para **verificação de IP de origem** no firewall, bloqueando pacotes falsificados (IP Spoofing).
+* Atualização de assinaturas e políticas de segurança dos ativos de borda.
+
+### 3. Detect (Detectar)
+Sistemas configurados para identificar anomalias com rapidez:
+* Implementação de **software de monitoramento de rede** contínuo para analisar desvios e picos repentinos de pacotes.
+* Instalação de um Sistema de Detecção de Intrusão (**IDS**) para gerar alertas automatizados em caso de tráfegos suspeitos com características de DoS.
+
+### 4. Respond (Responder)
+Protocolo de contenção ativado durante a crise:
+* Isolamento/colocação em modo *offline* de serviços de rede não críticos para liberar largura de banda para a operação essencial.
+* Bloqueio imediato do tráfego ICMP abusivo diretamente no firewall perimetral.
+* Análise ativa de logs do firewall e do IDS em tempo real para entender a assinatura do ataque.
+
+### 5. Recover (Recuperar)
+Plano de retorno à normalidade:
+* Restauração gradual do fluxo normal de dados da rede interna e estabilização dos servidores afetados.
+* Como o ataque afetou apenas a *disponibilidade* da rede, foi confirmado que **não houve exclusão ou corrupção de dados** de clientes.
+* Estabelecimento de um regime de monitoramento intensificado pelas **24 horas seguintes** ao incidente para garantir que nenhum ataque residual ocorresse.
+
+---
+
+## 💡 Aprendizados Adquiridos
+
+* Compreensão prática do comportamento do protocolo ICMP e como ele pode ser explorado para exaustão de recursos de rede.
+* Experiência com arquitetura de segurança defensiva, incluindo posicionamento e configuração de Firewalls e sistemas IDS/IPS.
+* Capacidade de documentar incidentes seguindo terminologias e padrões de governança internacionais (NIST), facilitando a comunicação transparente com os stakeholders da empresa.
