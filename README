@@ -1,36 +1,23 @@
-# 🚀 Portfólio de Relatórios Práticos: Cibersegurança & Operações de TI
+# 🐧 Gerenciamento de Identidade, Acesso e Arquivos no Linux
 
-Bem-vindo ao meu repositório de documentação técnica e análises laboratoriais. Este espaço foi criado com o objetivo de consolidar, estruturar e apresentar cenários práticos de resposta a incidentes, governança e infraestrutura de TI, aplicando frameworks reconhecidos pelo mercado internacional.
-
-Aqui você encontrará relatórios detalhados (write-ups) que demonstram minha capacidade analítica, domínio de protocolos de rede e abordagem proativa na mitigação de riscos digitais.
-
----
-
-## 📂 Índice de Projetos Práticos
-
-Abaixo estão os projetos desenvolvidos, divididos por escopo técnico. Clique no link de cada um para acessar a documentação completa e os relatórios gerados:
-
-| Projeto / Cenário | Framework / Tecnologia Aplicada | Status | Link para o Relatório |
-| :--- | :--- | :--- | :--- |
-| **Resposta a Incidente: Ataque DoS** | NIST CSF (Cybersecurity Framework) | ✅ Concluído | [Acessar Projeto](./NIST-Incident-Report/) |
-| **Análise Operacional de Feedbacks** | Triagem Quantitativa & Qualitativa | ✅ Concluído | [Acessar Projeto](./Analise-Operacional/) |
-
-*(Nota: À medida que eu avançar nos laboratórios de SOC e Blue Team, novos relatórios baseados em SIEM, Firewalls e IDS/IPS serão integrados aqui).*
+**Analista:** Caio Henrique Lopes Mendes  
+**Data:** 01 de Julho de 2026  
+**Escopo:** Navegação em sistemas Linux, manipulação via Shell corporativo e aplicação de IAM (Identity and Access Management).
 
 ---
 
-## 🛠️ Habilidades e Conceitos Demonstrados neste Repositório
+## 1. Descrição do Cenário
+Como analista de segurança cibernética, fui acionado para realizar uma auditoria ágil nos arquivos de controle de acesso da organização. 
 
-* **Resposta a Incidentes (IR):** Investigação de causa raiz, contenção de ameaças e planos de recuperação de desastres.
-* **Frameworks de Mercado:** Alinhamento operacional com as diretrizes do NIST CSF.
-* **Segurança de Redes:** Análise de tráfego malicioso (ICMP Flood), regras de firewall e implementação de ferramentas de detecção (IDS/IPS).
-* **Documentação Técnica:** Escrita de relatórios corporativos claros e transparentes para tomadas de decisão estratégicas.
+O objetivo principal consistia em identificar usuários recém-adicionados ao sistema pertencentes a um departamento específico e garantir que o relatório de vulnerabilidades semanal fosse copiado com segurança para o diretório de projetos do usuário operacional. O processo foi executado visando assegurar a integridade dos dados e aplicando estritamente o **Princípio do Menor Privilégio**.
 
 ---
 
-## 👤 Autor
+## 2. Passo a Passo da Execução (CLI Linux)
 
-* **Caio Henrique Lopes Mendes**
-* **Formação:** Bacharel em Ciência da Computação
-* **LinkedIn:** [Meu Perfil](https://www.linkedin.com/in/caiohenriquecyber/)
-* **Foco Profissional:** Segurança Cibernética | Blue Team | Operações de SOC
+### Etapa A: Localização de Usuários Específicos (Auditoria de Acesso)
+Para auditar os novos acessos do sistema, foi necessário extrair apenas os funcionários pertencentes ao departamento de **Recursos Humanos (Human Resources)** a partir de uma lista geral de novos usuários (`Q4_added_users.txt`).
+
+**Comando utilizado:**
+```bash
+grep "Human Resources" Q4_added_users.txt
